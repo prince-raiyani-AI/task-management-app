@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="eight columns offset-by-two">
+        <h2>{{ title }}</h2>
+        <form method="POST">
+            <label for="title">Title</label>
+            <input class="u-full-width" type="text" placeholder="Task Title" id="title" name="title"
+                value="{{ task.title if task else '' }}" required>
+
+            <label for="description">Description</label>
+            <textarea class="u-full-width" placeholder="Task Description" id="description"
+                name="description">{{ task.description if task else '' }}</textarea>
+
+            <div class="row">
+                <div class="six columns">
+                    <label for="priority">Priority</label>
+                    <select class="u-full-width" id="priority" name="priority">
+                        <option value="Low" {% if task and task.priority=='Low' %}selected{% endif %}>Low</option>
+                        <option value="Medium" {% if task and task.priority=='Medium' %}selected{% endif %}>Medium
+                        </option>
+                        <option value="High" {% if task and task.priority=='High' %}selected{% endif %}>High</option>
+                    </select>
+                </div>
+                <div class="six columns">
+                    <label for="status">Status</label>
+                    <select class="u-full-width" id="status" name="status">
+                        <option value="To-Do" {% if task and task.status=='To-Do' %}selected{% endif %}>To-Do</option>
+                        <option value="In Progress" {% if task and task.status=='In Progress' %}selected{% endif %}>In
+                            Progress</option>
+                        <option value="Done" {% if task and task.status=='Done' %}selected{% endif %}>Done</option>
+                        <option value="Cancelled" {% if task and task.status=='Cancelled' %}selected{% endif %}>
+                            Cancelled</option>
+                    </select>
+                </div>
+            </div>
+
+            <label for="due_date">Due Date</label>
+            <input class="u-full-width" type="date" id="due_date" name="due_date"
+                value="{{ task.due_date.strftime('%Y-%m-%d') if task and task.due_date else '' }}">
+
+            <label for="assigned_to">Assign To (Optional)</label>
+            <select class="u-full-width" id="assigned_to" name="assigned_to">
+                <option value="">-- Select User --</option>
+                {% for user in users %}
+                <option value="{{ user.id }}" {% if task and task.assigned_to_id==user.id %}selected{% endif %}>{{
+                    user.username }}</option>
+                {% endfor %}
+            </select>
+
+            <input class="button-primary" type="submit" value="Save Task">
+            <a class="button" href="{{ url_for('dashboard') }}">Cancel</a>
+        </form>
+    </div>
+</div>
+{% endblock %}

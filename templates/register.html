@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="row">
+    <div class="six columns offset-by-three">
+        <h2>Register</h2>
+        <form method="POST">
+            <label for="username">Username</label>
+            <input class="u-full-width" type="text" placeholder="Username" id="username" name="username" required>
+
+            <label for="email">Email</label>
+            <input class="u-full-width" type="email" placeholder="Email" id="email" name="email" required>
+
+            <label for="password">Password</label>
+            <input class="u-full-width" type="password" placeholder="Password" id="password" name="password" required>
+
+            <input class="button-primary" type="submit" value="Register">
+        </form>
+        <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a>.</p>
+    </div>
+</div>
+{% endblock %}
