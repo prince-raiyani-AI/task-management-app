@@ -9,19 +9,8 @@ from datetime import datetime
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site_v2.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['API_KEY'] = 'my_secure_api_key' # Change this in production
 
 db.init_app(app)
-
-# API Key security removed as per user request
-# def require_api_key(view_function):
-#     @wraps(view_function)
-#     def decorated_function(*args, **kwargs):
-#         if request.headers.get('X-API-KEY') and request.headers.get('X-API-KEY') == app.config['API_KEY']:
-#             return view_function(*args, **kwargs)
-#         else:
-#             abort(401)
-#     return decorated_function
 
 # --- User Endpoints ---
 

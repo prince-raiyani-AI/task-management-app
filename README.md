@@ -4,7 +4,7 @@ A Flask-based task management system with user authentication, task assignment, 
 
 ## Technical Stack
 
-*   **Backend**: Python 3.x, Flask
+*   **Backend**: Python 3.11, Flask
 *   **Database**: SQLite (SQLAlchemy ORM)
 *   **Authentication**: Flask-Login (Session)
 *   **Frontend**: Jinja2 Templates, Skeleton CSS (Dark Theme)
