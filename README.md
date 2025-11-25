@@ -102,3 +102,4 @@ python -m unittest discover tests
 *   [Git Documentation](https://git-scm.com/doc)
 *   [https://github.com/pavlo-myskov/flask-task-manager](https://github.com/pavlo-myskov/flask-task-manager)
 *   [https://github.com/Nirupama15/flask-task-tracker](https://github.com/Nirupama15/flask-task-tracker)
+*   [http://getskeleton.com/](http://getskeleton.com/) - For complete UI.
