@@ -10,7 +10,7 @@ db = SQLAlchemy()
 class User(UserMixin, db.Model):
     """
     User model for storing user details.
-    Inherits from UserMixin for Flask-Login integration.
+    Inherited from UserMixin for Flask-Login integration.
     """
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(150), unique=True, nullable=False)

@@ -4,15 +4,13 @@ from flask_login import LoginManager, login_user, logout_user, login_required, c
 from werkzeug.security import generate_password_hash, check_password_hash
 from models import db, User, Task
 from datetime import datetime
-import os
 
 # Reference: Flask Documentation
 # https://flask.palletsprojects.com/
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'your_secret_key_here' # Change this in production
+app.config['SECRET_KEY'] = 'this_is_top_secret'
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site_v2.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
@@ -42,7 +40,7 @@ def register():
         email = request.form.get('email')
         password = request.form.get('password')
         
-        user_exists = User.query.filter((User.username == username) | (User.email == email)).first()
+        user_exists = User.query.filter((User.username == username) | (User.email == email)).first()    # Only 1st match is returned
         if user_exists:
             flash('Username or Email already exists. Please choose a different one.', 'danger')
         else:
@@ -96,7 +94,7 @@ def new_task():
             try:
                 due_date = datetime.strptime(due_date_str, '%Y-%m-%d')
             except ValueError:
-                pass # Handle invalid date format if necessary
+                pass
 
         task = Task(title=title, description=description, priority=priority, status=status, due_date=due_date, author=current_user)
         

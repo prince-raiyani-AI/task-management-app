@@ -75,3 +75,15 @@ Run unit tests:
 ```bash
 python -m unittest discover tests
 ```
+
+## Reference
+
+*   [Flask Documentation](https://flask.palletsprojects.com/)
+*   [Flask-SQLAlchemy Documentation](https://flask-sqlalchemy.palletsprojects.com/)
+*   [Flask-Login Documentation](https://flask-login.palletsprojects.com/)
+*   [Werkzeug Documentation](https://werkzeug.palletsprojects.com/)
+*   [SQLAlchemy Documentation](https://www.sqlalchemy.org/)
+*   [Unittest Documentation](https://docs.python.org/3/library/unittest.html)   
+*   [Git Documentation](https://git-scm.com/doc)
+*   [https://github.com/pavlo-myskov/flask-task-manager](https://github.com/pavlo-myskov/flask-task-manager)
+*   [https://github.com/Nirupama15/flask-task-tracker](https://github.com/Nirupama15/flask-task-tracker)

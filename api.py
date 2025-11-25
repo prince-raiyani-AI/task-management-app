@@ -8,11 +8,10 @@ from datetime import datetime
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///site_v2.db'
-app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 db.init_app(app)
 
-# --- User Endpoints ---
+# User Endpoints 
 
 @app.route('/api/users', methods=['GET'])
 def get_all_users():
@@ -43,7 +42,7 @@ def delete_user(user_id):
     db.session.commit()
     return jsonify({'message': 'User deleted successfully'})
 
-# --- Task Endpoints ---
+# Task Endpoints 
 
 @app.route('/api/tasks', methods=['GET'])
 def get_tasks():
