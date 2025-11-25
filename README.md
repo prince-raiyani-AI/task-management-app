@@ -76,6 +76,8 @@ Run unit tests:
 python -m unittest discover tests
 ```
 
+## User Interface and application screenshots
+
 ## Reference
 
 *   [Flask Documentation](https://flask.palletsprojects.com/)
