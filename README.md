@@ -11,7 +11,9 @@ A Flask-based task management system with user authentication, task assignment, 
 
 ## Database Schema
 
-### User Table
+
+### 1. User Table (`user`)
+
 | Column | Type | Constraints | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | Integer | Primary Key | Unique user identifier |
@@ -19,7 +21,12 @@ A Flask-based task management system with user authentication, task assignment, 
 | `email` | String(150) | Unique, Not Null | User's email address |
 | `password_hash` | String(150) | Not Null | Hashed password |
 
-### Task Table
+-   **Relationships**: 
+    -   One-to-Many with `Task` (as Author).
+    -   One-to-Many with `Task` (as Assignee).
+
+### 2. Task Table (`task`)
+
 | Column | Type | Constraints | Description |
 | :--- | :--- | :--- | :--- |
 | `id` | Integer | Primary Key | Unique task identifier |
@@ -31,6 +38,10 @@ A Flask-based task management system with user authentication, task assignment, 
 | `status` | String(20) | Not Null, Default='To-Do' | To-Do, In Progress, Done, Cancelled |
 | `user_id` | Integer | ForeignKey('user.id'), Not Null | Author of the task |
 | `assigned_to_id` | Integer | ForeignKey('user.id'), Nullable | User assigned to the task |
+
+-   **Relationships**: 
+    -   Many-to-One with `User` (Author).
+    -   Many-to-One with `User` (Assignee).
 
 ## Setup and Installation
 
@@ -102,4 +113,3 @@ python -m unittest discover tests
 *   [Git Documentation](https://git-scm.com/doc)
 *   [https://github.com/pavlo-myskov/flask-task-manager](https://github.com/pavlo-myskov/flask-task-manager)
 *   [https://github.com/Nirupama15/flask-task-tracker](https://github.com/Nirupama15/flask-task-tracker)
-*   [http://getskeleton.com/](http://getskeleton.com/) - For complete UI.
